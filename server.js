@@ -1,12 +1,10 @@
-const generator = require('generate-password');
+const http = require('http');
 
-const password = generator.generate({
-  length: 12,
-  numbers: true,
-  symbols: true,
-  uppercase: true,
-  lowercase: true,
-  strict: true
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end('<h1>Bonjour Node !!!!</h1>\n');
 });
 
-console.log('Mot de passe généré :', password);
+server.listen(3000, () => {
+  console.log('Serveur démarré sur http://localhost:3000');
+});
